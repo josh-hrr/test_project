@@ -1,0 +1,39 @@
+
+/*
+
+const test = new Date();
+let day = test.getUTCDate();
+let month = test.getMonth() + 1;
+let year = test.getUTCFullYear();
+console.log(month + "/" + day + "/" + year);
+
+*/
+
+let birthdayDate: string = "12/9/1996";
+let birthdayDateNum: number = 1996;
+ function calculateAge(birthday: string | number){
+
+    let day: number;
+    let month: number;
+    let year: number;
+    let result: number;
+    let myDate: Date;
+
+    if(typeof(birthday) == "number"){
+        return "testing number input";
+    }else{
+        let splitArray: string[] = birthday.split('/');     
+        day = parseInt(splitArray[1]);
+        month = parseInt(splitArray[0]); 
+        year = parseInt(splitArray[2]);
+        myDate = new Date(year, month - 1, day);
+        result = 2023 - myDate.getFullYear();
+
+        console.log('anio de nacimiento: ' + myDate.toString())
+        console.log(' edad: ' + result)
+        return result;
+    }   
+ }
+
+
+console.log(calculateAge(birthdayDateNum));
